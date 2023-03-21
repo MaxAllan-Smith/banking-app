@@ -95,6 +95,5 @@ At any time, I want to be able to view my current funds in the account and print
 ### Depositing Balance
 
 ```javascript
-//
 
 ```
