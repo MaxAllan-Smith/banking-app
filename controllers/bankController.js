@@ -7,6 +7,10 @@ class BankController {
   deposit(amount, date) {
     this.account.deposit(amount, date);
   }
+
+  withdraw(amount, date) {
+    this.account.withdraw(amount, date);
+  }
 }
 
 module.exports = BankController;
