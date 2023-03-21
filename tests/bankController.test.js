@@ -49,5 +49,14 @@ describe('BankController', () => {
 
       expect(bankController.account.balance()).toBe(0.00);
     });
+
+    it('should add a single amount to the account and then withdraw multiple amounts. Then return the left over balance (2.55)', () => {
+      bankController.deposit(8.00);
+
+      bankController.withdraw(4.00);
+      bankController.withdraw(1.45);
+
+      expect(bankController.account.balance()).toBe(2.55);
+    });
   });
 });
