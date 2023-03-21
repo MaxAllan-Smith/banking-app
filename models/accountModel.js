@@ -11,8 +11,20 @@ class Account {
     });
   }
 
+  withdraw(amount, date) {
+    if (amount > this.balance()) {
+      throw new Error('Insufficient balance');
+    }
+    
+    this.transactions.push({
+      date,
+      amount: -amount,
+      balance: this.balance - amount
+    });
+  }
+
   balance() {
-    return this.transactions.reduce((acc, curr) => acc + curr.amount, 0);
+    return parseFloat(this.transactions.reduce((acc, curr) => acc + curr.amount, 0).toFixed(2));
   }
 }
 
