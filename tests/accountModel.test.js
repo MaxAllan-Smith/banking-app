@@ -57,5 +57,16 @@ describe('Account', () => {
 
       expect(account.balance()).toEqual(245.26);
     });
+
+    it('should return an error message when the user tries to withdraw an amount and there is not enough funds in the balance', () => {
+      const account = new Account();
+
+      try {
+        account.withdraw(20.00);
+      } catch (error) {
+        expect(error).toBeInstanceOf(Error);
+        expect(error.message).toBe("Insufficient balance");
+      }
+    });
   });
 });

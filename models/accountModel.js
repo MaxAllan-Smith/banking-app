@@ -12,6 +12,10 @@ class Account {
   }
 
   withdraw(amount, date) {
+    if (amount > this.balance()) {
+      throw new Error('Insufficient balance');
+    }
+    
     this.transactions.push({
       date,
       amount: -amount,
