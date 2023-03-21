@@ -43,7 +43,11 @@ describe('BankController', () => {
     });
 
     it('should add a single balance to the account and withdraw that single balance to make the total balance 0.00', () => {
-      
+      bankController.deposit(100.00, new Date('21/03/2023'));
+
+      bankController.withdraw(100.00, new Date('21/03/2023'));
+
+      expect(bankController.account.balance()).toBe(0.00);
     });
   });
 });
