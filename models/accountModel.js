@@ -20,7 +20,7 @@ class Account {
   }
 
   balance() {
-    return this.transactions.reduce((acc, curr) => acc + curr.amount, 0);
+    return parseFloat(this.transactions.reduce((acc, curr) => acc + curr.amount, 0).toFixed(2));
   }
 }
 

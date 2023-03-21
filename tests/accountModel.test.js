@@ -45,5 +45,17 @@ describe('Account', () => {
 
       expect(account.balance()).toEqual(200.00);
     });
+
+    it('should add a balance of 320.99, then withdraw (48.76, 20.99 and 5.98) and return the remaining balance of 245.26', () => {
+      const account = new Account();
+
+      account.deposit(320.99);
+
+      account.withdraw(48.76);
+      account.withdraw(20.99);
+      account.withdraw(5.98);
+
+      expect(account.balance()).toEqual(245.26);
+    });
   });
 });
