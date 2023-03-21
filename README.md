@@ -95,40 +95,6 @@ At any time, I want to be able to view my current funds in the account and print
 ### Depositing Balance
 
 ```javascript
-// Imports the BankModel Class to the testing suite
-const BankModel = require("../Models/BankModel");
+//
 
-// Defines what class the tests will affect.
-describe("BankModel", () => {
-  // Defines the bankModel object
-  const bankModel = new BankModel();
-
-  // Tests for an empty balance
-  test("should return an empty balance (0)", () => {
-    expect(bankModel.getBalance()).toEqual(0.0);
-  });
-
-  // Tests for a positive balance with a singular input
-  test("should return 1.50 (£1.50) after adding 1.50 to the balance", () => {
-    bankModel.addFunds(1.5);
-    expect(bankModel.getBalance()).toEqual(1.5);
-  });
-
-  // Tests for a positive balance with multiple inputs
-  test("should return 5.00 (£5.00) after adding 2.50 and 2.50 to the balance", () => {
-    bankModel.addFunds(2.5);
-    bankModel.addFunds(2.5);
-    expect(bankModel.getBalance()).toEqual(5.0);
-  });
-
-  // Tests for an empty list of deposits
-  test("should return an empty disposit list (array)", () => {
-    expect(bankModel.getDeposits()).toEqual([]);
-  });
-
-  // Tests for an empty list of withdrawals
-  test("should return an empty withdrawal list (array)", () => {
-    expect(bankModel.getWithdrawals()).toEqual([]);
-  });
-});
 ```
