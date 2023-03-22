@@ -59,4 +59,20 @@ describe('BankController', () => {
       expect(bankController.account.balance()).toBe(2.55);
     });
   });
+
+  describe('PrintStatement', () => {
+
+    it('should print the statement in the correct format', () => {
+      console.log = jest.fn();
+      expectedStatement = "date || debit || credit || balance\n" && "21/03/2023 || 100.00 || || 100.00" && "22/03/2023 || || 50.00 || -50.00";
+
+      bankController.deposit(100.00, "21/03/2023");
+
+      bankController.withdraw(50.00, "22/03/2023");
+
+      bankController.print();
+
+      expect(console.log).toHaveBeenCalledWith(expectedStatement);
+    });
+  });
 });
