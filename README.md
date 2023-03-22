@@ -92,8 +92,87 @@ At any time, I want to be able to view my current funds in the account and print
 
 ## Project Testing - Plan
 
-### Depositing Balance
+Below are a list of tests I plan to write as a starting point to this application.
+
+(The app with fully test driven)
+
+### Constructor
 
 ```javascript
+describe("Constructor", () => {
+  it("should create a new instance of Account", () => {
+    const account = new Account();
 
+    expect(account).toBeInstanceOf(Account);
+  });
+
+  it("should return a zero balance", () => {
+    const account = new Account();
+
+    expect(account.balance()).toEqual(0);
+  });
+});
+```
+
+### Deposit Method
+
+```javascript
+describe("Deposit (Method)", () => {
+  it("after depositing a single amount of 200.01, it should return the overall balance of 200.01", () => {
+    const account = new Account();
+
+    account.deposit(200.01, "21/03/2023");
+
+    expect(account.balance()).toEqual(200.01);
+  });
+
+  it("after depositing 3 amounts (10.00, 20.00 and 30.00), it should return an overall balance of 60.00", () => {
+    const account = new Account();
+
+    account.deposit(10.0);
+    account.deposit(20.0);
+    account.deposit(30.0);
+
+    expect(account.balance()).toEqual(60.0);
+  });
+});
+```
+
+### Withdraw Method
+
+```javascript
+describe("Withdraw (Method)", () => {
+  it("should add a balance of 250.99, then withdraw a single amount of 50.99 and return a balance of 200.00", () => {
+    const account = new Account();
+
+    account.deposit(250.99);
+
+    account.withdraw(50.99);
+
+    expect(account.balance()).toEqual(200.0);
+  });
+
+  it("should add a balance of 320.99, then withdraw (48.76, 20.99 and 5.98) and return the remaining balance of 245.26", () => {
+    const account = new Account();
+
+    account.deposit(320.99);
+
+    account.withdraw(48.76);
+    account.withdraw(20.99);
+    account.withdraw(5.98);
+
+    expect(account.balance()).toEqual(245.26);
+  });
+
+  it("should return an error message when the user tries to withdraw an amount and there is not enough funds in the balance", () => {
+    const account = new Account();
+
+    try {
+      account.withdraw(20.0);
+    } catch (error) {
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toBe("Insufficient balance");
+    }
+  });
+});
 ```
