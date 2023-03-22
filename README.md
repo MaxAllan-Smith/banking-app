@@ -176,3 +176,15 @@ describe("Withdraw (Method)", () => {
   });
 });
 ```
+
+## Rescources Used
+
+• [ChatGPT](https://chat.openai.com/chat) - (Only used for quick problem solving and basic arithmetic solving)
+
+• [Stack Overflow](https://stackoverflow.com/)
+
+• [YouTube](https://www.youtube.com/)
+
+• [JestJS Docs](https://jestjs.io/docs/getting-started)
+
+• [JavaScript Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
